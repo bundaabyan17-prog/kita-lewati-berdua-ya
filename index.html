@@ -1,0 +1,463 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Journey, Just Us ♡</title>
+<style>
+*{box-sizing:border-box}
+:root{--pink:#ffb4cf;--gold:#f5d6a0;--cream:#fff0e8}
+body{
+ margin:0;background:#100d20;color:var(--cream);
+ font-family:Georgia,serif;text-align:center;overflow-x:hidden;
+}
+body:before{
+ content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+ background:
+ radial-gradient(ellipse at 50% 10%,#65304e 0,transparent 48%),
+ radial-gradient(ellipse at 10% 90%,#29244c,transparent 50%),
+ linear-gradient(#100d20,#1d1028 70%,#100d20);
+}
+#sky{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.star{position:absolute;width:2px;height:2px;background:white;
+ border-radius:50%;animation:twinkle 2s infinite alternate}
+@keyframes twinkle{to{opacity:.15;transform:scale(.5)}}
+main{position:relative;max-width:650px;margin:auto;padding:32px 18px 65px}
+.kicker{font-size:10px;letter-spacing:4px;color:var(--gold)}
+h1{font-size:clamp(32px,8vw,53px);font-weight:normal;
+ color:var(--pink);line-height:1.15;margin:18px 0;
+ text-shadow:0 0 24px #ff82b566}
+p{line-height:1.9}
+.intro{font-size:14px;color:#e4cbd9;max-width:430px;margin:18px auto}
+.scene{height:330px;position:relative;margin:20px auto 0;max-width:440px}
+.moon{
+ position:absolute;right:12%;top:28px;width:72px;height:72px;
+ border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff4d8,#e7b5ba 70%,#97698f);
+ box-shadow:0 0 40px #ffcee655;
+}
+.earth{
+ position:absolute;left:8%;top:35px;width:85px;height:85px;
+ border-radius:50%;border:2px solid #8ee7de88;
+ background:
+ radial-gradient(ellipse at 32% 40%,#76cda3 0 13%,transparent 14%),
+ radial-gradient(ellipse at 70% 62%,#72c69b 0 16%,transparent 17%),
+ radial-gradient(circle at 30% 25%,#70b9d5,#24518d 60%,#111631);
+ box-shadow:0 0 25px #67caff44,inset -10px -6px 15px #080d2c;
+ animation:spin 12s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.orbit{position:absolute;inset:-12px -20px;border:1px solid #e6d3a588;
+ border-radius:50%;transform:rotate(-28deg)}
+.orbit:after{content:"✦";position:absolute;right:0;top:12%;
+ color:var(--gold);font-size:17px}
+.bouquet{position:absolute;left:50%;top:40px;transform:translateX(-50%);
+ width:240px;height:270px}
+.flower{position:absolute;width:86px;height:86px;
+ animation:flowerFloat 3s ease-in-out infinite alternate}
+.flower:nth-child(1){left:75px;top:0}
+.flower:nth-child(2){left:22px;top:38px;transform:scale(.9)}
+.flower:nth-child(3){left:130px;top:40px;transform:scale(.92)}
+.flower:nth-child(4){left:55px;top:80px;transform:scale(.82)}
+.flower:nth-child(5){left:108px;top:83px;transform:scale(.82)}
+@keyframes flowerFloat{to{translate:0 -6px}}
+.petal{position:absolute;left:25px;top:1px;width:36px;height:46px;
+ border-radius:50% 50% 42% 42%;transform-origin:18px 42px;
+ background:linear-gradient(135deg,#ffc4d9,#f05b91 60%,#851d52);
+ box-shadow:inset -4px -4px 8px #64113b66}
+.petal:nth-child(1){transform:rotate(0deg)}
+.petal:nth-child(2){transform:rotate(45deg)}
+.petal:nth-child(3){transform:rotate(90deg)}
+.petal:nth-child(4){transform:rotate(135deg)}
+.petal:nth-child(5){transform:rotate(180deg)}
+.petal:nth-child(6){transform:rotate(225deg)}
+.petal:nth-child(7){transform:rotate(270deg)}
+.petal:nth-child(8){transform:rotate(315deg)}
+.center{position:absolute;left:34px;top:27px;width:29px;height:29px;
+ border-radius:50%;background:radial-gradient(#fff0aa,#cf5a79 70%);
+ box-shadow:0 0 12px #ffd2a6}
+.wrap{position:absolute;top:143px;left:40px;width:160px;height:110px;
+ clip-path:polygon(7% 0,93% 0,100% 100%,50% 78%,0 100%);
+ background:linear-gradient(120deg,#fff2dc,#c49ca9 55%,#f9dfd6)}
+.bow{position:absolute;top:180px;left:94px;font-size:37px;color:#ffe2ad}
+.stem{position:absolute;top:100px;left:117px;width:3px;height:60px;
+ background:#5c936b;transform:rotate(-9deg)}
+.floatHeart{position:fixed;bottom:-25px;pointer-events:none;
+ color:#ff9ec5;animation:rise 6s linear forwards;z-index:2}
+@keyframes rise{to{transform:translateY(-110vh) rotate(35deg);opacity:0}}
+button{
+ cursor:pointer;border:1px solid #eac7a0;border-radius:40px;
+ padding:13px 21px;color:#fff1e9;font-family:Georgia,serif;
+ letter-spacing:.5px;font-size:13px;
+ background:linear-gradient(120deg,#a13e6c,#542747);
+ box-shadow:0 0 18px #f78cb322;transition:.3s;margin:6px;
+}
+button:hover{transform:translateY(-2px);box-shadow:0 0 25px #ff9ac555}
+button:active{transform:scale(.97)}
+.card{border:1px solid #f4d3b333;background:#ffffff08;
+ border-radius:22px;padding:24px 20px;margin:25px auto;
+ max-width:510px;box-shadow:0 0 40px #f9a1ca0a}
+.hidden{display:none!important}
+.fade{animation:fade .9s ease}
+@keyframes fade{from{opacity:0;transform:translateY(15px)}
+ to{opacity:1;transform:translateY(0)}}
+.gold{color:var(--gold)}
+.pink{color:var(--pink)}
+.message{font-size:15px;line-height:2;color:#f7e6ed}
+.line{width:60px;height:1px;background:var(--gold);
+ margin:22px auto}
+.envelope{
+ position:relative;width:180px;height:115px;margin:28px auto;
+ background:#eac8c5;border-radius:5px;cursor:pointer;
+ box-shadow:0 0 35px #ffb1cf22;transition:.5s;
+}
+.envelope:before{
+ content:"";position:absolute;inset:0;
+ background:#dba7b7;clip-path:polygon(0 0,50% 60%,100% 0);
+}
+.seal{position:absolute;left:calc(50% - 17px);top:39px;
+ width:34px;height:34px;border-radius:50%;background:#a6375f;
+ color:white;display:grid;place-items:center;z-index:2}
+.envelope:hover{transform:translateY(-5px)}
+.bigHeart{font-size:43px;animation:heartbeat 1.2s infinite alternate}
+@keyframes heartbeat{to{transform:scale(1.13)}}
+#typeText{white-space:pre-line}
+footer{font-size:10px;letter-spacing:2px;color:#c8a7c1;
+ margin-top:40px;line-height:2}
+input{
+ width:90%;max-width:260px;padding:12px;
+ border:1px solid #edb9d2;border-radius:25px;
+ background:#ffffff0b;color:white;text-align:center;
+ font-family:Georgia,serif;outline:none;margin:8px;
+}
+</style>
+</head>
+<body>
+<div id="sky"></div>
+<main>
+ <div class="kicker">✧ A LITTLE UNIVERSE FOR TWO ✧</div>
+ <h1>Our Journey,<br>Just Us.</h1>
+ <p class="intro">
+  Ada satu perjalanan yang ingin kuceritakan kepadamu.
+  Perjalanan yang belum selesai, karena masih banyak hari
+  yang ingin kita temui bersama.
+ </p>
+
+ <div class="scene">
+  <div class="moon"></div>
+  <div class="earth"><div class="orbit"></div></div>
+  <div class="bouquet">
+   <div class="flower">
+    <i class="petal"></i><i class="petal"></i><i class="petal"></i><i class="petal"></i>
+    <i class="petal"></i><i class="petal"></i><i class="petal"></i><i class="petal"></i><b class="center"></b>
+   </div>
+   <div class="flower">
+    <i class="petal"></i><i class="petal"></i><i class="petal"></i><i class="petal"></i>
+    <i class="petal"></i><i class="petal"></i><i class="petal"></i><i class="petal"></i><b class="center"></b>
+   </div>
+   <div class="flower">
+    <i class="petal"></i><i class="petal"></i><i class="petal"></i><i class="petal"></i>
+    <i class="petal"></i><i class="petal"></i><i class="petal"></i><i class="petal"></i><b class="center"></b>
+   </div>
+   <div class="flower">
+    <i class="petal"></i><i class="petal"></i><i class="petal"></i><i class="petal"></i>
+    <i class="petal"></i><i class="petal"></i><i class="petal"></i><i class="petal"></i><b class="center"></b>
+   </div>
+   <div class="flower">
+    <i class="petal"></i><i class="petal"></i><i class="petal"></i><i class="petal"></i>
+    <i class="petal"></i><i class="petal"></i><i class="petal"></i><i class="petal"></i><b class="center"></b>
+   </div>
+   <div class="stem"></div><div class="wrap"></div><div class="bow">∞</div>
+  </div>
+ </div>
+
+ <p class="gold" style="font-size:13px;letter-spacing:2px">
+  ONE WORLD · TWO HEARTS · A MILLION MEMORIES
+ </p>
+
+ <section class="card">
+  <div style="font-size:28px">🌷</div>
+  <p class="message">
+   Kalau hidup adalah sebuah perjalanan,<br>
+   <span class="gold">aku ingin belajar menjalaninya bersamamu.</span>
+  </p>
+  <button onclick="begin()">Ada sesuatu untukmu... ♡</button>
+ </section>
+
+ <section id="chapter1" class="card hidden">
+  <div class="kicker">CHAPTER I — THE BEGINNING</div>
+  <h2 class="pink" style="font-weight:normal">Tentang Kita</h2>
+  <p class="message">
+   Aku tidak tahu akan ada berapa banyak cerita di depan kita.
+   Mungkin ada hari yang terasa begitu indah, ketika semuanya
+   berjalan sesuai keinginan. Mungkin juga ada hari ketika
+   kita lelah, salah paham, atau tidak tahu harus berkata apa.
+
+   <br><br>
+   Tapi aku ingin kita mengingat sesuatu:
+   hubungan bukan tentang dua orang yang selalu sempurna.
+   Hubungan adalah tentang dua orang yang mau belajar memahami,
+   berani meminta maaf, bersedia mendengarkan, dan tidak
+   menganggap perasaan satu sama lain sebagai hal yang sepele.
+
+   <br><br>
+   Aku ingin mengenal dirimu lebih dalam, bukan hanya saat
+   kamu sedang bahagia, tetapi juga ketika kamu membutuhkan
+   waktu, ketenangan, dan seseorang yang mau mendengarkan.
+
+   <br><br>
+   <span class="gold">Aku ingin kita menjadi tempat untuk pulang,
+   bukan tempat yang membuat kita takut menjadi diri sendiri.</span>
+  </p>
+  <div class="line"></div>
+  <button onclick="nextChapter(2)">Lanjutkan perjalanan 🌍</button>
+ </section>
+
+ <section id="chapter2" class="card hidden">
+  <div class="kicker">CHAPTER II — AROUND THE WORLD</div>
+  <div style="font-size:42px">🌍 ✨ 🧭</div>
+  <h2 class="pink" style="font-weight:normal">Ke Mana Pun Kita Pergi</h2>
+  <p class="message">
+   Bayangkan suatu hari nanti kita bisa melihat tempat-tempat
+   yang selama ini hanya ada dalam angan. Menyaksikan matahari
+   terbit di kota yang belum pernah kita kunjungi, berjalan
+   di jalanan asing, mencicipi hal baru, dan menyimpan foto
+   yang kelak membuat kita tersenyum saat melihatnya kembali.
+
+   <br><br>
+   Tetapi aku sadar, perjalanan tidak selalu tentang
+   tiket pesawat, tempat yang jauh, atau pemandangan indah.
+   Kadang perjalanan paling berharga justru terjadi dalam
+   hal-hal sederhana: percakapan sebelum tidur, tawa karena
+   hal kecil, saling menyemangati, dan menemani satu sama lain
+   saat hari terasa panjang.
+
+   <br><br>
+   Aku tidak membutuhkan setiap perjalanan menjadi sempurna.
+   Aku hanya berharap kita bisa saling memberi ruang untuk
+   bermimpi, saling mendukung ketika tujuan terasa jauh,
+   dan ikut bahagia ketika salah satu dari kita berhasil
+   mencapai sesuatu yang diperjuangkan.
+
+   <br><br>
+   <span class="gold">Dunia ini luas, dan masih banyak yang belum
+   kita ketahui. Betapa indahnya jika kita punya kesempatan
+   untuk mengenalnya, sedikit demi sedikit, bersama-sama.</span>
+  </p>
+  <div class="line"></div>
+  <button onclick="nextChapter(3)">Ada surat yang belum kamu baca 💌</button>
+ </section>
+
+ <section id="chapter3" class="card hidden">
+  <div class="kicker">CHAPTER III — A SECRET LETTER</div>
+  <h2 class="pink" style="font-weight:normal">Sebuah Surat Kecil</h2>
+  <p class="intro">Sentuh amplop ini untuk membuka pesan yang kusimpan.</p>
+  <div class="envelope" onclick="openEnvelope()" id="envelope">
+   <div class="seal">♥</div>
+  </div>
+  <div id="letter" class="hidden fade">
+   <div style="font-size:36px">💌</div>
+   <p class="message" id="typeText"></p>
+   <button onclick="nextChapter(4)">Satu kejutan lagi... 🌙</button>
+  </div>
+ </section>
+
+ <section id="chapter4" class="card hidden">
+  <div class="kicker">CHAPTER IV — BEYOND TOMORROW</div>
+  <div class="bigHeart">💗</div>
+  <h2 class="pink" style="font-weight:normal">Untuk Masa Depan Kita</h2>
+  <p class="message">
+   Jika suatu hari nanti kita mengenang masa sekarang,
+   aku berharap kita bisa melihat betapa banyak hal
+   yang telah kita pelajari dan lewati bersama.
+
+   <br><br>
+   Mungkin kita akan berubah seiring waktu. Mimpi kita bisa
+   bertambah, cara berpikir kita bisa berkembang, dan hidup
+   mungkin membawa kita menghadapi hal-hal yang belum pernah
+   kita bayangkan. Karena itu, aku berharap kita tidak berhenti
+   saling mengenal, meskipun waktu terus berjalan.
+
+   <br><br>
+   Aku ingin merayakan pencapaianmu tanpa merasa harus
+   menjadi pusat dari semuanya. Aku ingin kamu tetap punya
+   ruang untuk tumbuh, mengejar cita-cita, dan menjadi dirimu
+   sendiri. Aku juga ingin terus bertumbuh, supaya kita bisa
+   saling mendukung dengan cara yang lebih baik.
+
+   <br><br>
+   Ketika keadaan tidak mudah, semoga kita bisa duduk bersama,
+   membicarakan apa yang terasa berat, lalu mencari jalan
+   yang bisa kita tempuh. Bukan karena kita tidak pernah
+   berbeda pendapat, melainkan karena kita mau belajar
+   menghadapi perbedaan dengan rasa hormat.
+
+   <br><br>
+   Aku tidak bisa melihat seluruh masa depan. Aku tidak tahu
+   semua tempat yang akan kita datangi, semua perubahan
+   yang akan terjadi, atau semua cerita yang menunggu kita.
+
+   <br><br>
+   <span class="gold">
+   Namun jika kita sama-sama menginginkannya, aku ingin
+   terus memberi ruang bagi cerita kita untuk bertumbuh.
+   Aku ingin mengusahakan hari esok bersamamu, bukan hanya
+   mengagumi indahnya hari ini.
+   </span>
+  </p>
+  <div class="line"></div>
+  <button onclick="nextChapter(5)">Buka pesan terakhir 🔐</button>
+ </section>
+
+ <section id="chapter5" class="card hidden">
+  <div class="kicker">THE FINAL SURPRISE</div>
+  <div style="font-size:50px">🌌</div>
+  <h2 class="pink" style="font-weight:normal">Sebelum Cerita Ini Berlanjut...</h2>
+  <p class="message">
+   Ada satu harapan yang ingin kusampaikan.
+   Bukan janji bahwa hidup akan selalu mudah,
+   bukan pula janji bahwa kita tidak akan pernah berubah.
+   Aku hanya ingin, selama kita sama-sama memilih perjalanan ini,
+   kita terus belajar menjadi dua orang yang saling menjaga.
+
+   <br><br>
+   Aku ingin suatu hari nanti kita bisa melihat kembali
+   perjalanan panjang ini dan tersenyum karena kita telah
+   menciptakan begitu banyak kenangan, melewati begitu banyak
+   musim, serta saling memberi kesempatan untuk tumbuh.
+
+   <br><br>
+   <span class="gold">Kalau dunia ini punya begitu banyak arah,
+   aku berharap kita bisa terus menemukan jalan untuk
+   berjalan berdampingan.</span>
+  </p>
+  <div class="line"></div>
+  <div class="bigHeart">∞</div>
+  <h2 class="gold" style="font-weight:normal">
+   Not just for today.<br>But for all the tomorrows we choose.
+  </h2>
+  <p class="message">
+   Bukan hanya untuk hari ini,<br>
+   tetapi untuk hari-hari esok yang kita pilih bersama.<br><br>
+   <span class="pink">Apa pun yang nanti harus kita lewati,<br>
+   semoga kita selalu punya keberanian untuk menghadapinya
+   dengan hati yang saling memahami.</span>
+  </p>
+  <div class="line"></div>
+  <p class="kicker">OUR JOURNEY IS STILL UNFOLDING</p>
+  <p style="font-size:13px;color:#dfbfd5">
+   Satu dunia. Banyak cerita. Dan harapan untuk terus bertumbuh bersama.
+  </p>
+  <button onclick="restart()">Baca lagi dari awal ♡</button>
+ </section>
+
+ <footer>
+  MADE WITH LOVE, HOPE & A LITTLE UNIVERSE<br>
+  <span class="gold">✧ OUR JOURNEY, JUST US ✧</span>
+ </footer>
+</main>
+
+<script>
+const sky=document.getElementById('sky');
+for(let i=0;i<100;i++){
+ const s=document.createElement('i');
+ s.className='star';
+ s.style.left=Math.random()*100+'%';
+ s.style.top=Math.random()*100+'%';
+ s.style.animationDelay=Math.random()*3+'s';
+ s.style.opacity=Math.random();
+ sky.appendChild(s);
+}
+
+function hearts(){
+ const h=document.createElement('div');
+ h.className='floatHeart';
+ h.textContent=['♡','♥','✧','💕'][Math.floor(Math.random()*4)];
+ h.style.left=Math.random()*95+'%';
+ h.style.fontSize=(14+Math.random()*20)+'px';
+ h.style.animationDuration=(4+Math.random()*4)+'s';
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),8500);
+}
+setInterval(hearts,850);
+
+function show(id){
+ document.getElementById(id).classList.remove('hidden');
+ document.getElementById(id).classList.add('fade');
+ setTimeout(()=>{
+  document.getElementById(id).scrollIntoView({
+   behavior:'smooth',block:'start'
+  });
+ },100);
+}
+function begin(){show('chapter1')}
+
+function nextChapter(n){
+ show('chapter'+n);
+ if(n===5){
+  for(let i=0;i<18;i++)setTimeout(hearts,i*120);
+ }
+}
+
+let opened=false;
+const letterText=
+`Ada hal-hal yang mungkin sulit kujelaskan hanya lewat kata-kata.
+
+Aku tidak tahu seberapa jauh perjalanan kita nanti. Aku juga tidak tahu semua hal yang akan berubah seiring waktu. Tapi aku tahu bahwa setiap hubungan yang berarti membutuhkan lebih dari sekadar perasaan indah. Ia membutuhkan kesediaan untuk mendengar, kejujuran untuk berbicara, dan keberanian untuk belajar dari kesalahan.
+
+Aku ingin kita punya cerita yang tidak hanya indah untuk dikenang, tetapi juga membuat kita bangga karena telah berusaha menjadi lebih baik.
+
+Kalau kamu sedang mengejar mimpi, aku berharap kamu menemukan semangat untuk melangkah. Kalau aku sedang berusaha mencapai sesuatu, aku berharap kita bisa saling menyemangati. Dan kalau suatu hari salah satu dari kita merasa lelah, semoga kita bisa saling memberi waktu, pengertian, dan ruang untuk bernapas.
+
+Aku ingin mengenal banyak versi dirimu seiring waktu. Aku ingin mendengar mimpi-mimpi yang belum sempat kamu ceritakan, mengetahui hal-hal kecil yang membuatmu bahagia, dan terus belajar memahami apa yang penting bagimu.
+
+Bagiku, masa depan bukan sekadar sebuah tempat yang ingin kita capai. Masa depan adalah sesuatu yang kita bangun sedikit demi sedikit melalui pilihan, perhatian, kejujuran, dan usaha yang nyata.
+
+Jika suatu hari nanti kita melihat kembali perjalanan ini, aku berharap kita bisa berkata bahwa kita sudah mencoba menjalaninya dengan tulus.
+
+Terima kasih sudah menjadi bagian dari cerita ini. Semoga masih banyak halaman yang bisa kita tulis, banyak tempat yang bisa kita lihat, dan banyak hari yang bisa kita isi dengan kenangan baru.
+
+Aku tidak meminta kita menjadi sempurna. Aku hanya berharap kita selalu ingat bahwa kita adalah dua manusia yang sedang belajar.
+
+Dan jika kita sama-sama menginginkan masa depan itu, semoga kita terus punya alasan untuk berjalan berdampingan.
+
+Dengan penuh harapan,
+untuk semua hari yang belum kita temui. ♡`;
+
+function openEnvelope(){
+ if(opened)return;
+ opened=true;
+ document.getElementById('envelope').style.transform='scale(.85)';
+ document.getElementById('envelope').style.opacity='.3';
+ setTimeout(()=>{
+  document.getElementById('envelope').classList.add('hidden');
+  document.getElementById('letter').classList.remove('hidden');
+  const el=document.getElementById('typeText');
+  let i=0;
+  function type(){
+   if(i<letterText.length){
+    el.textContent+=letterText.charAt(i++);
+    document.getElementById('chapter3').scrollIntoView({
+     behavior:'smooth',block:'end'
+    });
+    setTimeout(type,19);
+   }
+  }
+  type();
+ },450);
+}
+function restart(){
+ document.querySelectorAll('[id^="chapter"]').forEach(el=>{
+  el.classList.add('hidden');
+ });
+ document.getElementById('letter').classList.add('hidden');
+ document.getElementById('envelope').classList.remove('hidden');
+ document.getElementById('envelope').style.opacity='1';
+ document.getElementById('envelope').style.transform='';
+ document.getElementById('typeText').textContent='';
+ opened=false;
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
